@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "jwt-decode": "^3.1.2",
+    "node-fetch": "^3.2.6",
+    "react-autocomplete": "^1.8.1"
+  }
+}
