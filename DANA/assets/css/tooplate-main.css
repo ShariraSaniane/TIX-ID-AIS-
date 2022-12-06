@@ -131,7 +131,7 @@ a {
 /* Banner Style */
 .banner {
 	margin-top: 50px;
-	background-image: url(../images/banner-bg.jpg);
+	background-image: url(../images/dana.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 150px 0px;
@@ -728,6 +728,7 @@ a {
 	.contact-page .right-content .col-md-6,
 	.contact-page .right-content .col-md-12 {
 		padding: 0px;
+		background-color: red;
 	}
 	.featured-page {
 		margin-top: 80px;
