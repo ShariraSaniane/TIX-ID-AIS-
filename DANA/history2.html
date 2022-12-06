@@ -9,11 +9,11 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-    <title>Transfer</title>
+    <title>Profile</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Favicon  -->
     <link rel="icon" href="images/icon-dana.png">
 
@@ -21,6 +21,24 @@
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/tooplate-main.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #e3e2e2;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #59abe58e;
+      }
+      </style>
 
 <!--
 Tooplate 2114 Pixie
@@ -30,8 +48,8 @@ https://www.tooplate.com/view/2114-pixie
 
   <body>
     
-     <!-- Pre Header -->
-     <div id="pre-header" class="header">
+    <!-- Pre Header -->
+    <div id="pre-header" class="header">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -52,21 +70,22 @@ https://www.tooplate.com/view/2114-pixie
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="profile.html">Profile</a>
+              <span class="sr-only">(current)</span>
             </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="topup.html">Top_Up</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="transfer.html">Transfer</a>
-              <span class="sr-only">(current)</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="transaksi.html">Transaksi</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="transaksi.html">transaksi</a>
-                <span class="sr-only">(current)</span>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="history2.html">History</a>
-              </li>
+              <a class="nav-link" href="history2.html">History</a>
+              <span class="sr-only">(current)</span>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="index.html">Logout</a>
             </li>
@@ -76,49 +95,63 @@ https://www.tooplate.com/view/2114-pixie
     </nav>
 
     <!-- Page Content -->
-    <!-- ****** Topup Area Start ****** -->
-    <div class="topup_area section_padding_100">
+    <!-- ****** Profile Area Start ****** -->
+    <div class="section_padding_100">
       <div class="container">
           <div class="row">
 
               <div class="col-md-8 offset-md-2">
-                  <div class="topup_area mt-50 clearfix">
+                  <div class="mt-50 clearfix">
+
+                    <div class="featured-page">
                       <div class="container">
                         <div class="row">
                           <div class="col-md-4 col-sm-12">
                             <div class="section-heading">
                               <div class="line-dec"></div>
-                              <h1>transaksi</h1>
+                              <h1>History</h1>
                             </div>
                           </div>
                           
                         </div>
                       </div>
+                    </div>
+                    
+                    <br>
+                      
+                    <div class="col-12 mb-8">
+                      <table class="col-12 mb-8">
+                        <tr>
+                          <td>Jenis Pembayaran</td>
+                          <td>Tanggal</td>
+                          <td>Nominal</td>
+                        </tr>
+                        <tr>
+                          <td id="jenis_pembayaran"> </td>
+                          <td id="tanggal"> </td>
+                          <td id="nominal"> </td>
+                        </tr>
+                        <tr>
+                          <td id="jenis_pembayaran"> </td>
+                          <td id="tanggal"> </td>
+                          <td id="nominal"> </td>
+                        </tr>
+                        <tr>
+                          <td id="jenis_pembayaran"> </td>
+                          <td id="tanggal"> </td>
+                          <td id="nominal"> </td>
+                        </tr>
+                        
+                      </table>
+                    </div>
 
-                      <form action="#" method="post">
-                          <div class="row">
-                              <div class="col-12 mb-3">
-                                <label for="id_user">id pembelian<span></span></label>
-                                <input type="text" class="form-control" id="hp" value="">
-                              </div>
-                              <div class="col-12 mb-3">
-                                  <label for="Nominal">Jumlah<span>*</span></label>
-                                  <input type="text" class="form-control" placeholder="Rp" id="nominal" value="">
-                              </div>
-                              <div class="col-md-12">
-                                <button class="btn karl-checkout-btn" id="submit" style="background-color: #108FEA; color: white ;" >Send</button>
-                             </div>
-                          </div>
-                      </form>
                   </div>
+              </div>       
               </div>
-              <br><br>  
-              </div>
-
           </div>
       </div>
   </div>
-  <!-- ****** Checkout Area End ****** -->
+  <!-- ****** Profile Area End ****** -->
           
 
 
@@ -139,7 +172,7 @@ https://www.tooplate.com/view/2114-pixie
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    <script src="transfer.js"></script>
+    <script src="profile.js"></script>
 
 
     <script language = "text/Javascript"> 
@@ -152,8 +185,6 @@ https://www.tooplate.com/view/2114-pixie
           }
       }
     </script>
-
-    
 
 
   </body>
