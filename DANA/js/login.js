@@ -1,22 +1,19 @@
-var moneygo_login = "https://moneygo-api.herokuapp.com/api/login";
-var coinless_login = "https://coinless.herokuapp.com/api/login";
-var harpay_login = "https://harpay-api.herokuapp.com/auth/login";
-var met4_login = "https://met4kantin.herokuapp.com/api/login";
+var dana_login = "https://dana-api.glitch.me/api/login";
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
-const email = document.querySelector("#email");
+const no_hp = document.querySelector("#no_hp");
 const password = document.querySelector("#password");
 const buttonSubmit = document.querySelector("#submit");
 
 buttonSubmit.addEventListener("click", (e) => {
     e.preventDefault(); // mencegah refresh
 
+    // format req api dana
     var raw = JSON.stringify({
-        email: email.value,
-        pass: password.value,
-        password: password.value //harpay req.bodynya password, bkn pass
+        no_hp: no_hp.value,
+        pass: password.value
     });
 
     var requestOptions = {
@@ -38,32 +35,20 @@ buttonSubmit.addEventListener("click", (e) => {
 
     async function getData(){
         //response masih dalam bentuk string
-        let data_moneygo = await getResponse(moneygo_login);
-        let data_coinless = await getResponse(coinless_login);
-        let data_harpay = await getResponse(harpay_login);
-        let data_met4 = await getResponse(met4_login);
+        let data_dana = await getResponse(dana_login);
         
         //response string dijadiin json
-        var resp_moneygo = JSON.parse(data_moneygo);
-        var resp_coinless= JSON.parse(data_coinless);
-        var resp_harpay= JSON.parse(data_harpay);
-        var resp_met4= JSON.parse(data_met4);
+        var resp_dana = JSON.parse(data_dana);
 
         //kalo success
-        if(resp_moneygo.success == true && resp_met4.status == 200 && resp_coinless.status == 200 && resp_harpay.message == "Auth success"){
-            window.localStorage.setItem('moneygo', resp_moneygo.token);
-            window.localStorage.setItem('coinless', resp_coinless.jwt);
-            window.localStorage.setItem('harpay', resp_harpay.token);
-            window.localStorage.setItem('met4', resp_met4.jwt);
-            
-            window.location.href = "home.php";
+        if(resp_dana.success == true){
+            window.localStorage.setItem('dana', resp_dana.token);
+            window.location.href = "profile.html";
+            alert(resp_dana.message);
         }else{
-            alert("try again");
+            alert(resp_dana.message);
         }
         
-        // if(resp_moneygo.error == true && resp_coinless.jwt ){
-            
-        // }
     };
 
     getData();
