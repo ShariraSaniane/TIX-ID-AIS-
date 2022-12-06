@@ -1,14 +1,11 @@
-var moneygo_register = "https://moneygo-api.herokuapp.com/api/register";
-var coinless_register = "https://coinless.herokuapp.com/api/profile";
-var met4_register = "https://met4kantin.herokuapp.com/api/profile";
-var harpay_register = "https://harpay-api.herokuapp.com/auth/registrasi"; //ini banyak amat parameternya
+var dana_register = "https://dana-api.glitch.me/api/register";
 
 //post
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
 const name = document.querySelector("#name");
-const email = document.querySelector("#email");
+const no_hp = document.querySelector("#no_hp");
 const password = document.querySelector("#password");
 const buttonSubmit = document.querySelector("#submit");
 
@@ -16,8 +13,8 @@ buttonSubmit.addEventListener("click", (e) => {
     e.preventDefault(); 
 
     var raw = JSON.stringify({
-        name: name.value,
-        email: email.value,
+        nama_user: name.value,
+        no_hp: no_hp.value,
         pass: password.value    
     });
 
@@ -40,22 +37,18 @@ buttonSubmit.addEventListener("click", (e) => {
 
     async function getData(){
         //response masih dalam bentuk string
-        let data_moneygo = await getResponse(moneygo_register);
-        let data_coinless = await getResponse(coinless_register);
-        let data_met4 = await getResponse(met4_register);
+        let data_dana = await getResponse(dana_register);
         
 
         //response string dijadiin json
-        var resp_moneygo = JSON.parse(data_moneygo);
-        var resp_coinless= JSON.parse(data_coinless);
-        var resp_met4= JSON.parse(data_met4);
+        var resp_dana = JSON.parse(data_dana);
 
         
-        if(resp_moneygo.status == 200 && resp_coinless.status == 200 && resp_met4.status == 200){
-            alert(resp_moneygo.message)
+        if(resp_dana.status == 200){
+            alert(resp_dana.message)
             window.location.href = "login.html";
         }else{
-            alert("Try again");
+            alert(resp_dana.message);
         }
 
     };
