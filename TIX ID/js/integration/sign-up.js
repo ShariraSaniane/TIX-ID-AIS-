@@ -32,7 +32,6 @@ btnSignUp.addEventListener("click" , e => {
 async function requestRegister(headers, raw){
     // requestFunction(headers, link, raw, method)
     let responseTIX = await integration.requestFunction(headers, baseURLTixID + "/profil", raw, 'POST') 
-    console.log("Hehe")
     console.log(responseTIX)
     // let responseDANA = await integration.requestFunction(headers
     //                                                 , baseURLDANA + "/register"
