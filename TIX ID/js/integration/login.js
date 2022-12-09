@@ -15,24 +15,50 @@ btnLogin.addEventListener("click", e => {
         return;
     }
 
-    console.log("Halo");
+    var raw = JSON.stringify({
+        "nomorhp": txtNoHp,
+        "no_hp": txtNoHp,
+        "password": txtPassword,
+        "pass":txtPassword
+    })
 
-    var raw = {
-        nomorhp: txtNoHp,
-        password: txtPassword
-    }
-
-    var link = baseURLTixID + "/login"
-
-    requestA(headers, link, raw)
+    requestLogin(headers, raw)
 })
 
-async function requestA(headers, link, raw){
-    let response = await integration.requestFunction(headers, link, raw, 'POST')
-    login(JSON.stringify(response));
-    console.log(response);
+async function requestLogin(headers, raw){
+    let responseTIX = await integration.requestFunction(headers, 
+                                                        baseURLTixID + "/login", 
+                                                        raw, 
+                                                        'POST');
+
+    // let responseDANA = await integration.requestFunction(headers, 
+    //                                                     baseURLDANA + "/login", 
+    //                                                     raw, 
+    //                                                     'POST')
+
+    if(responseTIX.status == 200){ //|| responseDANA == 200){
+        // setToken('dana', responseDANA.token);
+        setToken('tixid', responseTIX.token)
+        var hasil = login(JSON.stringify({
+            tixid: responseTIX
+            // dana: responseDANA
+        }));
+
+        return hasil;
+    }
+    
+    else {
+        return alert("Nomor HP atau password salah")
+    }
 };
 
+function setToken (nama, isiToken){
+    window.localStorage.setItem(nama, isiToken);
+}
+
 function login(response){
-    let data = JSON.parse(response);
+    // let dataTIX = JSON.parse(response.tixid);
+    // let dataDANA = JSON.parse(response.dana);
+    
+    window.location.href = "../index.html";
 };

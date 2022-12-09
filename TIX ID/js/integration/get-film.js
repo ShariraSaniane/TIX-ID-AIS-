@@ -31,7 +31,6 @@ function anotherFunction(response){
 
     markup += `</div>`
    
-    console.log(markup);
     containerFilm.innerHTML += markup
 };
 
