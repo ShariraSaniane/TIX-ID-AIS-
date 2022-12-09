@@ -32,10 +32,12 @@ async function getResponse(url, requestMethod){
 
 const integration ={
     requestWithoutBody:function(link, method){
+        console.log("Requested")
         return this.response (link, requestMethod(method, null, null))
     },
 
     requestFunction: function (headers, link, raw, method){
+        console.log("Requested")
         var myHeaders = new Headers();
         
         for (let i = 0; i < headers.length; i += 2){
