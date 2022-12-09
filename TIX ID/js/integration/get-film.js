@@ -1,5 +1,6 @@
-// requestFunction(headersKiri, headersKanan, link, raw, method)
-// requestWithoutBody(link, method)
+/* requestFunction(headers, link, raw, method)
+headers = [isi 1, isi 2]
+// requestWithoutBody(link, method) */
 
 (async function getFilm(){
     let response = await integration.requestWithoutBody(baseURLTixID + "/film", 'GET')

@@ -1,11 +1,13 @@
-// requestFunction(headersKiri, headersKanan, link, raw, method)
-// requestWithoutBody(link, method)
+/* requestFunction(headers, link, raw, method)
 
-(async function getFilm(){
+headers = [isi 1, isi 2]
+requestWithoutBody(link, method) */
+
+(async function template(){
     let response = await integration.requestWithoutBody(baseURLTixID + "/film", 'GET')
     anotherFunction(JSON.stringify(response));
 })();
 
 function anotherFunction(response){
-    console.log("halo");
+    let data = JSON.parse(response);
 };

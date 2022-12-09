@@ -1,15 +1,20 @@
 var baseURLDANA = "https://dana-api.glitch.me/api";
 var baseURLTixID = "https://tixid-api.glitch.me/api"
 
-function requestMethod (method, headers, raw){
-    var request = {
-        method: method,
-        body: raw,
-        redirect: 'follow'
-    }
-
-    if (headers != null){
-        request.headers = headers
+function requestMethod (method, header, raw){
+    if (header != null){
+        request = {
+            method: method,
+            body: raw,
+            redirect: 'follow',
+            headers: header
+        }
+    } else {
+        request = {
+            method: method,
+            body: raw,
+            redirect: 'follow'
+        }
     }
 
     return request;
@@ -30,11 +35,11 @@ const integration ={
         return this.response (link, requestMethod(method, null, null))
     },
 
-    requestFunction: function (headersKiri, headersKanan, link, raw, method){
+    requestFunction: function (headers, link, raw, method){
         var myHeaders = new Headers();
         
-        for (let i = 0; i < headers.length; i++){
-            myHeaders.append(headersKiri, headersKanan);
+        for (let i = 0; i < headers.length; i += 2){
+            myHeaders.append(headers[i], headers[i + 1]);
         }
 
         // Integration to TIX ID
