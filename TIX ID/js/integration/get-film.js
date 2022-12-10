@@ -16,21 +16,28 @@ function anotherFunction(response){
     let markup = ` <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" > `
 
     for (let i = 0; i < data.film.length; i++){
+        var namaFilm = data.film[i].judul_film
+        var namaFile = namaFilm.replace(/\s+/g, '-').toLowerCase();
+        namaFile += '.html'
+
         markup += `
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-img"><img src="assets/img/movie/cargo.jpg" class="img-fluid" alt=""></div>
                 <div class="portfolio-info">
-                    <h4>${JSON.stringify(data.film[i].judul_film)}</h4>
+                    <h4>${namaFilm}</h4>
                     <a href="assets/img/movie/cargo.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                    <a href="cargo.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                    <a href="film.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
             </div>
         `
+        // createPage(namaFile, data.film[i]);
     }
 
     markup += `</div>`
    
     containerFilm.innerHTML += markup
+
+    
 };
 

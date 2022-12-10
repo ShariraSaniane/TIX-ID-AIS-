@@ -31,20 +31,16 @@ async function requestLogin(headers, raw){
                                                         raw, 
                                                         'POST');
 
-    // let responseDANA = await integration.requestFunction(headers, 
-    //                                                     baseURLDANA + "/login", 
-    //                                                     raw, 
-    //                                                     'POST')
+    let responseDANA = await integration.requestFunction(headers, 
+                                                        baseURLDANA + "/login", 
+                                                        raw, 
+                                                        'POST')
 
-    if(responseTIX.status == 200){ //|| responseDANA == 200){
-        // setToken('dana', responseDANA.token);
-        setToken('tixid', responseTIX.token)
-        var hasil = login(JSON.stringify({
-            tixid: responseTIX
-            // dana: responseDANA
-        }));
+    if(responseTIX.status == 200|| responseDANA == 200){
+        setToken('dana', responseDANA.token);
+        setToken('tixid', responseTIX.token);
 
-        return hasil;
+        return login(responseDANA, responseTIX);
     }
     
     else {
@@ -56,9 +52,17 @@ function setToken (nama, isiToken){
     window.localStorage.setItem(nama, isiToken);
 }
 
-function login(response){
-    // let dataTIX = JSON.parse(response.tixid);
-    // let dataDANA = JSON.parse(response.dana);
+function login(dataDANA, dataTIX){
+    let decodedTIX = JSON.parse(JSON.parse(decodeToken(dataTIX.token)));
+    console.log(decodedTIX)
+
+    let roleTIX = decodedTIX.rows[0].role_user
+
+    if(roleTIX == 0){
+        window.location.href = "../index.html";
+    }
     
-    window.location.href = "../index.html";
+    if(roleTIX == 1){
+        window.location.href= "../Admin/index.html"
+    }
 };
