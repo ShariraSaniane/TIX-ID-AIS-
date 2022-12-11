@@ -13,7 +13,13 @@ btnBayar.addEventListener("click", e => {
 
 async function bayar(id_film, jumlah_tiket){
     let token = getToken('tixid')
+    let tokenSarah = getToken('dana')
     
+    if(token == null && tokenSarah == null){
+        alert("Please login first")
+        return window.location.href == '/login/index.html'
+    }
+
     var headers = [
         "Authorization",
         token,
@@ -23,7 +29,8 @@ async function bayar(id_film, jumlah_tiket){
 
     var raw = JSON.stringify({
         "id_film": id_film,
-        "jumlah_tiket": jumlah_tiket
+        "jumlah_tiket": jumlah_tiket,
+        "tokenSarah": tokenSarah
     })
 
     let response = await integration.requestFunction(headers, baseURLTixID + "/pembelian", raw, 'POST')
