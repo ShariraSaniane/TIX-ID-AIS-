@@ -64,7 +64,7 @@ function decodeToken (token) {
 
 function getToken(namaToken){
     var token = JSON.stringify(localStorage.getItem(namaToken))
-    token = ("Bearer " + token).replace(/\"/g, "")
+    token = (token).replace(/\"/g, "")
 
     return token
 }

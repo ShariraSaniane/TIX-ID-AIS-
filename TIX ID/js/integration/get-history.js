@@ -10,7 +10,7 @@ async function getHistory(){
     
     var headers = [
         "Authorization",
-        token
+        "Bearer " + token
     ]
 
     let response = await integration.requestFunction (headers, baseURLTixID + "/history", null, 'GET')

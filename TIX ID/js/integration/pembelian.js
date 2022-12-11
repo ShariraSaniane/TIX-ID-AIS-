@@ -22,7 +22,7 @@ async function bayar(id_film, jumlah_tiket){
 
     var headers = [
         "Authorization",
-        token,
+        "Bearer " + token,
         "Content-Type",
         "application/json"
     ]
