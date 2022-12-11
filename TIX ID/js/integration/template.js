@@ -8,7 +8,7 @@ requestWithoutBody(link, method) */
     
     var headers = [
         "Authorization",
-        token
+        "Bearer " + token
     ]
 
     var raw = JSON.stringify({
