@@ -61,3 +61,16 @@ function decodeToken (token) {
   
     return JSON.stringify(jsonPayload);
 };
+
+function getToken(namaToken){
+    var token = JSON.stringify(localStorage.getItem(namaToken))
+    token = ("Bearer " + token).replace(/\"/g, "")
+
+    return token
+}
+
+function changeTimestampSQL(date){
+    var newDate = new Date(date).toISOString().slice(0, 19).replace('T', ' ')
+
+    return newDate
+}

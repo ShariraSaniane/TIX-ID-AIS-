@@ -78,22 +78,20 @@
        
         <div class="col-12 mb-8">
           <table class="col-12 mb-8">
-            <tr>
-              <td>No</td>
-              <td id="id_history"> </td>
-            </tr>
-            <tr>
-              <td>Id Pembelian</td>
-              <td id="id_pembelian"> </td>
-            </tr>
-            <tr>
-              <td>Tanggal Nonton</td>
-              <td id="tanggal"> </td>
-            </tr>
-            <tr>
-              <td>Status Pembelian</td>
-              <td id="pembelian"> </td>
-            </tr>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Tanggal Pembelian</th>
+                <th>Judul Film</th>
+                <th>Tanggal Film</th>
+                <th>Jumlah Tiket</th>
+                <th>Harga Total</th>
+                <th>Status Pembelian</th>
+              </tr>
+            </thead>
+            <tbody id="isi-history"> 
+              
+            </tbody>
           </table>
         </div>
 
@@ -185,8 +183,9 @@
   <script src="../assets/vendor/php-email-form/validate.js"></script>
   
   <!-- Template Main JS File -->
-  <script defer src="../assets/js/main.js"></script>
-  <script defer src="../js/fetch.js"></script>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="js/fetch.js"></script>
+  <script defer src="js/integration/get-history.js"></script>
 
 </body>
 
