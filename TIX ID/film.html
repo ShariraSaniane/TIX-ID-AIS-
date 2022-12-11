@@ -34,37 +34,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-
-  <script>
-    var subjectObject = {
-      "XX1": {
-        
-      },
-      "CGV": {
-        
-      },
-      "Cinepolis": {
-        
-      }
-    }
-    window.onload = function() {
-      var subjectSel = document.getElementById("cinema");
-      
-      for (var x in subjectObject) {
-        subjectSel.options[subjectSel.options.length] = new Option(x, x);
-      }
-      subjectSel.onchange = function() {
-        //empty Chapters- and Topics- dropdowns
-        chapterSel.length = 1;
-        topicSel.length = 1;
-        
-      }
-      
-    }
-    </script>
-
 </head>
-
 <body>
 
   <!-- ======= Header ======= -->
@@ -257,9 +227,11 @@
 
   <!-- Template Main JS File -->
   <script defer src="assets/js/main.js"></script>
-  <script defer src="js/fetch.js"></script>
+  
   <script defer src="js/integration/pembelian.js"></script>
-    
+  <script defer src="js/fetch.js"></script>
+  <script defer src="js/integration/get-bioskop.js"></script>
+
 </body>
 
 </html>
