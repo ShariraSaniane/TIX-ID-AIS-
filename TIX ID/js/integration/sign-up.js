@@ -33,12 +33,12 @@ async function requestRegister(headers, raw){
     // requestFunction(headers, link, raw, method)
     let responseTIX = await integration.requestFunction(headers, baseURLTixID + "/profil", raw, 'POST') 
     console.log(responseTIX)
-    let responseDANA = await integration.requestFunction(headers
-                                                    , baseURLDANA + "/register"
-                                                    , raw
-                                                    , 'POST')
+    // let responseDANA = await integration.requestFunction(headers
+    //                                                 , baseURLDANA + "/register"
+    //                                                 , raw
+    //                                                 , 'POST')
     
-    if (responseTIX.status == 400 && responseDANA.status == 400){
+    if (responseTIX.status == 400){ // && responseDANA.status == 400){
         alert (responseTIX.message)
         return window.location.href = 'signUp.html'
     }
