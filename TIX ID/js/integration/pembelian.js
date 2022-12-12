@@ -34,12 +34,12 @@ async function bayar(id_film, jumlah_tiket){
     })
 
     let response = await integration.requestFunction(headers, baseURLTixID + "/pembelian", raw, 'POST')
-    console.log(response)
-    handleResponse(JSON.stringify(response));
+    bayarbayar(JSON.stringify(response));
 };
 
-function handleResponse(response){
+function bayarbayar(response){
     let data = JSON.parse(response);
+    console.log( "data", data)
 
     if (data.status == 200){
         alert("Pembelian berhasil, silahkan cek riwayat")
