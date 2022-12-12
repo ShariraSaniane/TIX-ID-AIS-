@@ -13,7 +13,7 @@ function anotherFunction(response){
     let data = JSON.parse(response);
     console.log(data.film.length);
 
-    let markup = ` <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" > `
+    let markup = ` <div class="row portfolio-container aos-init aos-animate" data-aos="fade-up" data-aos-delay="200" > `
 
     for (let i = 0; i < data.film.length; i++){
         var namaFilm = data.film[i].judul_film
@@ -23,11 +23,13 @@ function anotherFunction(response){
         markup += `
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets/img/movie/cargo.jpg" class="img-fluid" alt=""></div>
+                <a href="film.html" class="details-link" title="More Details"><i class="bx bx-link"></i>
+                    <div class="portfolio-img"><img src="assets/img/movie/cargo.jpg" class="img-fluid" alt=""> </div> 
+                </a>
                 <div class="portfolio-info">
                     <h4>${namaFilm}</h4>
                     <a href="assets/img/movie/cargo.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                    <a href="film.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                    
                 </div>
             </div>
         `
